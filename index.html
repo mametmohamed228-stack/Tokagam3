@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -30,10 +31,17 @@
             flex-direction: column;
             position: relative;
         }
-        /* Header */
+        .v-badge {
+            background: #22c55e;
+            color: white;
+            text-align: center;
+            font-size: 11px;
+            font-weight: bold;
+            padding: 3px 0;
+        }
         .header {
             background: linear-gradient(135deg, #6a11cb, #2575fc);
-            padding: 20px 15px;
+            padding: 18px 15px;
             color: white;
             text-align: center;
             border-bottom-left-radius: 20px;
@@ -43,7 +51,6 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 10px;
         }
         .user-info {
             display: flex;
@@ -51,116 +58,103 @@
             gap: 10px;
         }
         .avatar {
-            width: 52px;
-            height: 52px;
+            width: 50px;
+            height: 50px;
             background: #fff;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 28px;
+            font-size: 26px;
             border: 3px solid #ffe600;
         }
         .user-details {
             text-align: right;
         }
         .user-details h2 {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 900;
         }
         .name-input {
             background: rgba(255,255,255,0.25);
             border: 1px solid rgba(255,255,255,0.6);
             color: white;
-            padding: 4px 8px;
+            padding: 3px 8px;
             border-radius: 8px;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: bold;
-            width: 140px;
+            width: 130px;
             outline: none;
         }
         .badge {
             background: rgba(255, 255, 255, 0.25);
-            padding: 3px 10px;
-            border-radius: 12px;
+            padding: 2px 8px;
+            border-radius: 10px;
             font-size: 11px;
             font-weight: bold;
             display: inline-block;
-            margin-top: 4px;
+            margin-top: 3px;
         }
         .stats-box {
             display: flex;
-            gap: 6px;
+            gap: 5px;
         }
         .stat-card {
             background: #ffffff;
             color: #333;
-            padding: 6px 10px;
-            border-radius: 14px;
+            padding: 5px 8px;
+            border-radius: 12px;
             font-weight: 800;
             font-size: 12px;
             display: flex;
             align-items: center;
             gap: 4px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
         }
-
-        /* Intro Box */
         .intro-card {
             background: #fffde7;
             border: 2px dashed #fbc02d;
-            border-radius: 18px;
-            padding: 12px 15px;
-            margin: 12px 15px 5px 15px;
+            border-radius: 16px;
+            padding: 10px 12px;
+            margin: 10px 12px 4px 12px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
         .intro-text {
             color: #444;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 700;
             line-height: 1.4;
         }
-
-        /* Navigation Tabs */
         .stages-nav {
             display: flex;
-            gap: 6px;
+            gap: 5px;
             overflow-x: auto;
-            padding: 10px 15px;
-            scrollbar-width: none;
-        }
-        .stages-nav::-webkit-scrollbar {
-            display: none;
+            padding: 8px 12px;
         }
         .stage-tab {
             background: #eef2f5;
             color: #555;
-            padding: 8px 12px;
-            border-radius: 12px;
+            padding: 7px 10px;
+            border-radius: 10px;
             font-size: 11px;
             font-weight: bold;
             white-space: nowrap;
             cursor: pointer;
             border: 1px solid #ddd;
-            transition: all 0.2s;
         }
         .stage-tab.active {
             background: #ff4081;
             color: white;
             border-color: #ff4081;
-            box-shadow: 0 4px 10px rgba(255, 64, 129, 0.3);
         }
-
-        /* Question Box */
         .game-card {
             background: #fdfdfd;
             border: 2px solid #e2e8f0;
-            border-radius: 20px;
-            margin: 0 15px 15px 15px;
-            padding: 18px;
-            min-height: 270px;
+            border-radius: 18px;
+            margin: 0 12px 12px 12px;
+            padding: 15px;
+            min-height: 250px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -169,50 +163,45 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
         .stage-title-text {
             color: #1e88e5;
             font-weight: 800;
-            font-size: 15px;
+            font-size: 14px;
         }
         .q-counter {
             background: #e3f2fd;
             color: #1976d2;
-            padding: 4px 10px;
-            border-radius: 10px;
-            font-size: 12px;
+            padding: 3px 8px;
+            border-radius: 8px;
+            font-size: 11px;
             font-weight: 700;
         }
         .question-text {
-            font-size: 17px;
+            font-size: 16px;
             font-weight: 800;
             color: #2c3e50;
             text-align: center;
-            margin: 10px 0 15px 0;
-            line-height: 1.5;
+            margin: 10px 0;
             direction: ltr;
         }
         .options-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 10px;
+            gap: 8px;
         }
         .opt-btn {
             background: #ffffff;
             border: 2px solid #cbd5e1;
-            border-radius: 14px;
-            padding: 12px 8px;
-            font-size: 15px;
+            border-radius: 12px;
+            padding: 10px 6px;
+            font-size: 14px;
             font-weight: 800;
             color: #334155;
             cursor: pointer;
-            transition: all 0.2s;
             text-align: center;
             direction: ltr;
-        }
-        .opt-btn:active {
-            transform: scale(0.97);
         }
         .opt-btn.correct {
             background: #4caf50 !important;
@@ -224,18 +213,15 @@
             color: white !important;
             border-color: #f44336 !important;
         }
-
         .feedback-msg {
             text-align: center;
             font-weight: 800;
-            font-size: 15px;
-            margin-top: 10px;
-            min-height: 22px;
+            font-size: 14px;
+            margin-top: 8px;
+            min-height: 20px;
         }
-
-        /* Certificate Action Bar */
         .cert-bar {
-            padding: 0 15px 12px 15px;
+            padding: 0 12px 10px 12px;
         }
         .cert-btn {
             width: 100%;
@@ -243,38 +229,31 @@
             color: #b81b5c;
             border: 2px solid #f48fb1;
             padding: 10px;
-            border-radius: 14px;
-            font-size: 14px;
+            border-radius: 12px;
+            font-size: 13px;
             font-weight: 900;
             cursor: pointer;
-            box-shadow: 0 4px 10px rgba(244, 143, 177, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
         }
-
-        /* Footer Share */
         .footer-share {
             background: #f8fafc;
             border-top: 1px solid #e2e8f0;
-            padding: 12px 15px;
+            padding: 10px 12px;
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
         .share-text {
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 800;
             color: #475569;
         }
         .share-btns {
             display: flex;
-            gap: 6px;
+            gap: 5px;
         }
         .share-btn {
-            padding: 7px 12px;
-            border-radius: 10px;
+            padding: 6px 10px;
+            border-radius: 8px;
             border: none;
             color: white;
             font-size: 11px;
@@ -284,7 +263,6 @@
         .bg-copy { background: #64748b; }
         .bg-wa { background: #25d366; }
 
-        /* Certificate Modal */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -295,113 +273,54 @@
             align-items: center;
             padding: 15px;
         }
-        .modal-overlay.active {
-            display: flex;
-        }
+        .modal-overlay.active { display: flex; }
         .certificate-box {
             background: #fff;
             width: 100%;
-            max-width: 480px;
-            border-radius: 20px;
-            border: 8px solid #f1c40f;
-            padding: 20px;
+            max-width: 450px;
+            border-radius: 18px;
+            border: 6px solid #f1c40f;
+            padding: 15px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            position: relative;
-            background-image: radial-gradient(#fcf3cf 1px, transparent 1px);
-            background-size: 16px 16px;
         }
         .cert-header {
             color: #d4ac0d;
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 900;
-            margin-bottom: 5px;
-        }
-        .cert-sub {
-            color: #555;
-            font-size: 13px;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-        .cert-name-edit {
-            margin: 10px 0;
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-            align-items: center;
-        }
-        .cert-name-edit label {
-            font-size: 12px;
-            color: #666;
-            font-weight: bold;
-        }
-        .cert-name-edit input {
-            padding: 6px 12px;
-            border: 2px solid #f1c40f;
-            border-radius: 10px;
-            font-size: 16px;
-            font-weight: 900;
-            text-align: center;
-            color: #2c3e50;
-            width: 80%;
         }
         .cert-body {
-            font-size: 14px;
+            font-size: 13px;
             color: #34495e;
-            line-height: 1.6;
-            margin: 15px 0;
+            margin: 12px 0;
             font-weight: 700;
-        }
-        .cert-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            margin-top: 20px;
-            padding-top: 10px;
-            border-top: 2px dashed #cbd5e1;
-        }
-        .cert-seal {
-            font-size: 40px;
-        }
-        .cert-modal-btns {
-            display: flex;
-            gap: 10px;
-            margin-top: 15px;
+            line-height: 1.5;
         }
         .cert-modal-btn {
-            flex: 1;
-            padding: 10px;
+            width: 48%;
+            padding: 8px;
             border: none;
-            border-radius: 10px;
+            border-radius: 8px;
             font-weight: bold;
             cursor: pointer;
-            font-size: 13px;
         }
         .btn-print { background: #27ae60; color: white; }
         .btn-close { background: #e74c3c; color: white; }
-
-        @media print {
-            body * { visibility: hidden; }
-            .modal-overlay, .modal-overlay * { visibility: visible; }
-            .modal-overlay { position: absolute; left: 0; top: 0; width: 100%; background: none; }
-            .cert-modal-btns, .cert-name-edit label, .cert-name-edit input { display: none; }
-            .cert-print-name { display: block !important; font-size: 22px; font-weight: bold; color: #1a252f; margin: 10px 0; }
-        }
     </style>
 </head>
 <body>
 
 <div class="app-container">
-    <!-- Header -->
+    <div class="v-badge">✨ الإصدار المحدث 2.0 - Toka abed</div>
+
     <div class="header">
         <div class="profile-section">
             <div class="user-info">
                 <div class="avatar">👧</div>
                 <div class="user-details">
-                    <h2 id="app-title-display">Toka abed</h2>
-                    <input type="text" id="player-name-input" class="name-input" value="تقى عابد" oninput="syncName(this.value)" placeholder="اسم اللاعب">
+                    <h2>Toka abed</h2>
+                    <input type="text" id="player-name-input" class="name-input" value="تقى عابد" oninput="syncName(this.value)">
                     <br>
-                    <span class="badge">Math Primary 3 (Languages)</span>
+                    <span class="badge">Math Primary 3</span>
                 </div>
             </div>
             <div class="stats-box">
@@ -411,24 +330,21 @@
         </div>
     </div>
 
-    <!-- Intro Box -->
     <div class="intro-card">
-        <div style="font-size: 28px;">👧</div>
+        <div style="font-size: 24px;">👧</div>
         <div class="intro-text">
-            أهلاً بيكي في لعبة <b id="intro-player-name">تقى عابد</b>! جاهزة لتحدي الوقت المنقضي (Elapsed Time) والـ Math بالإنجليزيّة؟ يلا بينا!
+            أهلاً بيكي يا <b id="intro-player-name">تقى عابد</b>! يلا بينا نحل أسئلة الماث والوقت المنقضي!
         </div>
     </div>
 
-    <!-- Stage Navigation -->
     <div class="stages-nav">
-        <div class="stage-tab active" onclick="switchStage(0)">1. تمارين الضرب</div>
+        <div class="stage-tab active" onclick="switchStage(0)">1. الضرب</div>
         <div class="stage-tab" onclick="switchStage(1)">2. الوقت المنقضي ⏰</div>
-        <div class="stage-tab" onclick="switchStage(2)">3. خط القفز</div>
+        <div class="stage-tab" onclick="switchStage(2)">3. القفز</div>
         <div class="stage-tab" onclick="switchStage(3)">4. مسائل كلامية</div>
-        <div class="stage-tab" onclick="switchStage(4)">5. تحدي الماث</div>
+        <div class="stage-tab" onclick="switchStage(4)">5. التحدي</div>
     </div>
 
-    <!-- Game Card -->
     <div class="game-card">
         <div>
             <div class="card-header">
@@ -444,70 +360,185 @@
         </div>
     </div>
 
-    <!-- Certificate Button -->
     <div class="cert-bar">
-        <button class="cert-btn" onclick="openCertificate()">
-            🏆 عرض شهادة التقدير والتفوق
-        </button>
+        <button class="cert-btn" onclick="openCertificate()">🏆 عرض شهادة التقدير والتفوق</button>
     </div>
 
-    <!-- Footer Share Bar -->
     <div class="footer-share">
-        <div class="share-text">🚀 شارك لعبة "Toka abed" مع أصحابك</div>
+        <div class="share-text">🚀 مشاركة اللعبة:</div>
         <div class="share-btns">
-            <button class="share-btn bg-copy" onclick="copyLink()">انسخ الرابط</button>
+            <button class="share-btn bg-copy" onclick="copyLink()">نسخ الرابط</button>
             <button class="share-btn bg-wa" onclick="shareWhatsApp()">واتساب</button>
         </div>
     </div>
 </div>
 
-<!-- Certificate Modal -->
 <div class="modal-overlay" id="cert-modal">
     <div class="certificate-box">
-        <div class="cert-header">🎓 شهادة تقدير وتفوق 🎓</div>
-        <div class="cert-sub">Toka abed - Math Champion</div>
-        
-        <div class="cert-name-edit">
-            <label>اسم الطالب/الطالبة في الشهادة:</label>
-            <input type="text" id="cert-name-input" value="تقى عابد" oninput="syncName(this.value)">
-        </div>
-        <div class="cert-print-name" style="display:none;" id="cert-print-display">تقى عابد</div>
-
+        <div class="cert-header">🎓 شهادة تقدير 🎓</div>
         <div class="cert-body">
-            تشهد إدارة اللعبة بأن البطلة المتميزة <br>
-            <span style="font-size: 20px; color: #d35400; font-weight: 900;" id="cert-display-name">تقى عابد</span><br>
-            قد اجتازت اختبارات الرياضيات (Primary 3) بنجاح وحصلت على نتيجة:
-            <br>
-            <span style="font-size: 18px; color: #27ae60; font-weight: 900;" id="cert-score-display">0 نقطة</span> ⭐
+            تشهد اللعبة بأن البطلة المتميزة <br>
+            <b style="font-size: 18px; color: #d35400;" id="cert-display-name">تقى عابد</b><br>
+            قد اجتازت جميع أسئلة الماث بنجاح!<br>
+            النتيجة: <b style="color: #27ae60;" id="cert-score-display">0 نقطة</b> ⭐
         </div>
-
-        <div class="cert-footer">
-            <div style="text-align: right; font-size: 11px; color: #7f8c8d;">
-                التاريخ: <span id="cert-date"></span><br>
-                المادة: Math Primary 3
-            </div>
-            <div class="cert-seal">🏅</div>
-        </div>
-
-        <div class="cert-modal-btns">
-            <button class="cert-modal-btn btn-print" onclick="printCertificate()">🖨️ طباعة / حفظ الشهادة</button>
+        <div style="display: flex; justify-content: space-between;">
+            <button class="cert-modal-btn btn-print" onclick="window.print()">🖨️ طباعة</button>
             <button class="cert-modal-btn btn-close" onclick="closeCertificate()">إغلاق</button>
         </div>
     </div>
 </div>
 
 <script>
-    // Game Questions Data
     const stagesData = [
         {
-            title: "المرحلة الأولى: تمارين تمهيدية للضرب",
+            title: "المرحلة الأولى: الضرب",
             questions: [
-                { q: "3 + 3 + 3 + 3 = ?", opts: ["4 × 3 = 12", "3 × 3 = 9", "4 × 4 = 16", "2 × 3 = 6"], ans: 0 },
                 { q: "5 × 4 = ?", opts: ["15", "20", "25", "30"], ans: 1 },
                 { q: "6 × 3 = ?", opts: ["12", "18", "21", "24"], ans: 1 },
                 { q: "7 × 2 = ?", opts: ["14", "16", "12", "18"], ans: 0 }
             ]
         },
         {
+            title: "المرحلة الثانية: الوقت المنقضي (Elapsed Time)",
+            questions: [
+                { q: "Start: 8:45 AM | End: 11:20 AM<br>Elapsed time?", opts: ["1h 35m", "2h 35m", "2h 25m", "3h 35m"], ans: 1 },
+                { q: "Start: 11:35 AM | End: 2:15 PM<br>Elapsed time?", opts: ["2h 20m", "3h 20m", "2h 40m", "3h 40m"], ans: 2 },
+                { q: "Start: 4:50 PM | Duration: 2h 15m<br>End time?", opts: ["6:55 PM", "7:15 PM", "7:05 PM", "6:05 PM"], ans: 2 }
+            ]
+        },
+        {
+            title: "المرحلة الثالثة: خط القفز",
+            questions: [
+                { q: "4, 8, 12, __, 20", opts: ["14", "16", "18", "15"], ans: 1 },
+                { q: "5, 10, 15, 20, __", opts: ["22", "25", "30", "24"], ans: 1 }
+            ]
+        },
+        {
+            title: "المرحلة الرابعة: مسائل كلامية",
+            questions: [
+                { q: "4 boxes with 5 apples each. Total?", opts: ["15 apples", "20 apples", "25 apples", "10 apples"], ans: 1 }
+            ]
+        },
+        {
+            title: "المرحلة الخامسة: التحدي",
+            questions: [
+                { q: "8 × 4 = ?", opts: ["28", "32", "36", "40"], ans: 1 },
+                { q: "7 × 5 = ?", opts: ["30", "35", "40", "25"], ans: 1 }
+            ]
+        }
+    ];
 
-    
+    let currentStage = 0;
+    let currentQIndex = 0;
+    let score = 0;
+    let streak = 0;
+
+    function getPlayerName() {
+        const input = document.getElementById('player-name-input');
+        return (input && input.value.trim()) ? input.value.trim() : "تقى عابد";
+    }
+
+    function renderQuestion() {
+        const stage = stagesData[currentStage];
+        const qData = stage.questions[currentQIndex];
+
+        document.getElementById('stage-title').innerText = stage.title;
+        document.getElementById('q-counter').innerText = `السؤال ${currentQIndex + 1} من ${stage.questions.length}`;
+        document.getElementById('question-text').innerHTML = qData.q;
+        document.getElementById('feedback').innerText = "";
+
+        const optionsContainer = document.getElementById('options-container');
+        optionsContainer.innerHTML = "";
+
+        qData.opts.forEach((optText, idx) => {
+            const btn = document.createElement('button');
+            btn.className = 'opt-btn';
+            btn.innerText = optText;
+            btn.onclick = () => checkAnswer(idx, qData.ans, btn);
+            optionsContainer.appendChild(btn);
+        });
+    }
+
+    function checkAnswer(selectedIdx, correctIdx, btn) {
+        const allBtns = document.querySelectorAll('.opt-btn');
+        allBtns.forEach(b => b.disabled = true);
+
+        const feedbackEl = document.getElementById('feedback');
+        const playerName = getPlayerName();
+
+        if (selectedIdx === correctIdx) {
+            btn.classList.add('correct');
+            feedbackEl.innerText = `🎉 إجابة صحيحة يا ${playerName}!`;
+            feedbackEl.style.color = "#2e7d32";
+            score += 10;
+            streak += 1;
+        } else {
+            btn.classList.add('wrong');
+            if(allBtns[correctIdx]) allBtns[correctIdx].classList.add('correct');
+            feedbackEl.innerText = "❌ إجابة خاطئة!";
+            feedbackEl.style.color = "#c62828";
+            streak = 0;
+        }
+
+        document.getElementById('score').innerText = score;
+        document.getElementById('streak').innerText = streak;
+
+        setTimeout(() => {
+            currentQIndex++;
+            if (currentQIndex < stagesData[currentStage].questions.length) {
+                renderQuestion();
+            } else {
+                if (currentStage < stagesData.length - 1) {
+                    switchStage(currentStage + 1);
+                } else {
+                    feedbackEl.innerText = `🏆 أحسنتِ يا ${playerName}! أنهيتِ اللعبة!`;
+                    feedbackEl.style.color = "#2e7d32";
+                    setTimeout(openCertificate, 800);
+                }
+            }
+        }, 1000);
+    }
+
+    function switchStage(stageIdx) {
+        currentStage = stageIdx;
+        currentQIndex = 0;
+        const tabs = document.querySelectorAll('.stage-tab');
+        tabs.forEach((tab, i) => {
+            if (i === stageIdx) tab.classList.add('active');
+            else tab.classList.remove('active');
+        });
+        renderQuestion();
+    }
+
+    function syncName(val) {
+        const name = val.trim() || "تقى عابد";
+        document.getElementById('player-name-input').value = val;
+        document.getElementById('intro-player-name').innerText = name;
+        document.getElementById('cert-display-name').innerText = name;
+    }
+
+    function openCertificate() {
+        syncName(getPlayerName());
+        document.getElementById('cert-score-display').innerText = `${score} نقطة`;
+        document.getElementById('cert-modal').classList.add('active');
+    }
+
+    function closeCertificate() {
+        document.getElementById('cert-modal').classList.remove('active');
+    }
+
+    function copyLink() {
+        navigator.clipboard.writeText(window.location.href);
+        alert("تم نسخ الرابط!");
+    }
+
+    function shareWhatsApp() {
+        window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(window.location.href)}`);
+    }
+
+    renderQuestion();
+</script>
+
+</body>
+</html>
