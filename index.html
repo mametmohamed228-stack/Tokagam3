@@ -461,7 +461,7 @@
             explanation: "مع تقى 👧 نقرأ المسألة الكلامية بذكاء! حدد الأرقام والمطلوب قبل الحل.",
             example: "<b>مثال:</b> 4 أكياس في كل كيس 5 تفاحات.<br>العدد الكلي = 4 × 5 = 20 تفاحة.",
             questions: [
-                { q: "اشترت تقى 5 علاب ألوان، في كل علبة 6 أقلام. كم عدد الأقلام الكلي؟", opts: ["25 قلم", "30 قلم", "35 قلم", "20 قلم"], ans: 1 },
+                { q: "اشترت تقى 5 علب ألوان، في كل علبة 6 أقلام. كم عدد الأقلام الكلي؟", opts: ["25 قلم", "30 قلم", "35 قلم", "20 قلم"], ans: 1 },
                 { q: "بدأ درس الماث الساعة 11:00 AM وانتهى الساعة 12:30 PM. ما المدة المنقضية؟", opts: ["1h 30m", "2 hours", "1 hour", "45 mins"], ans: 0 }
             ]
         },
@@ -479,7 +479,7 @@
 
     let currentStage = 0;
     let currentQIndex = 0;
-    let viewMode = 'explain'; // 'explain' or 'practice'
+    let viewMode = 'explain';
     let score = 0;
     let streak = 0;
 
@@ -565,4 +565,79 @@
 
         if (selectedIdx === correctIdx) {
             btn.classList.add('correct');
-            feedbackEl.innerText = `?
+            feedbackEl.innerText = `🎉 ممتاز إجابة صحيحة يا ${playerName}!`;
+            feedbackEl.style.color = "#2e7d32";
+            score += 10;
+            streak += 1;
+        } else {
+            btn.classList.add('wrong');
+            if(allBtns[correctIdx]) allBtns[correctIdx].classList.add('correct');
+            feedbackEl.innerText = "❌ إجابة خاطئة! حاول في السؤال القادم";
+            feedbackEl.style.color = "#c62828";
+            streak = 0;
+        }
+
+        document.getElementById('score').innerText = score;
+        document.getElementById('streak').innerText = streak;
+
+        setTimeout(() => {
+            currentQIndex++;
+            if (currentQIndex < gameData[currentStage].questions.length) {
+                renderView();
+            } else {
+                if (currentStage < gameData.length - 1) {
+                    alert(`🏆 أحسنتِ يا ${playerName}! أتممتِ أسئلة هذه المرحلة بنجاح! ننتقل للمرحلة التالية.`);
+                    switchStage(currentStage + 1);
+                } else {
+                    alert(`🎊 مبروك يا ${playerName}! أنهيتِ جميع مراحل اللعبة بنجاح!`);
+                    openCertificate();
+                }
+            }
+        }, 1200);
+    }
+
+    function switchStage(stageIdx) {
+        currentStage = stageIdx;
+        currentQIndex = 0;
+        viewMode = 'explain';
+
+        const tabs = document.querySelectorAll('.stage-tab');
+        tabs.forEach((tab, i) => {
+            if (i === stageIdx) tab.classList.add('active');
+            else tab.classList.remove('active');
+        });
+
+        renderView();
+    }
+
+    function syncName(val) {
+        const name = val.trim() || "تقى عابد";
+        document.getElementById('cert-display-name').innerText = name;
+        renderView();
+    }
+
+    function openCertificate() {
+        syncName(getPlayerName());
+        document.getElementById('cert-score-display').innerText = `${score} نقطة`;
+        document.getElementById('cert-modal').classList.add('active');
+    }
+
+    function closeCertificate() {
+        document.getElementById('cert-modal').classList.remove('active');
+    }
+
+    function copyLink() {
+        navigator.clipboard.writeText(window.location.href);
+        alert("تم نسخ رابط اللعبة بنجاح!");
+    }
+
+    function shareWhatsApp() {
+        window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent('العب معي لعبة الماث والوقت المنقضي للبطولة تقى عابد: ' + window.location.href)}`);
+    }
+
+    // Initial Render
+    renderView();
+</script>
+
+</body>
+</html>
