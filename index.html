@@ -69,14 +69,15 @@
             font-weight: 900;
         }
         .name-input {
-            background: rgba(255,255,255,0.2);
-            border: 1px solid rgba(255,255,255,0.5);
+            background: rgba(255,255,255,0.25);
+            border: 1px solid rgba(255,255,255,0.6);
             color: white;
-            padding: 3px 8px;
+            padding: 4px 8px;
             border-radius: 8px;
             font-size: 14px;
             font-weight: bold;
             width: 140px;
+            outline: none;
         }
         .badge {
             background: rgba(255, 255, 255, 0.25);
@@ -85,7 +86,7 @@
             font-size: 11px;
             font-weight: bold;
             display: inline-block;
-            margin-top: 2px;
+            margin-top: 4px;
         }
         .stats-box {
             display: flex;
@@ -467,7 +468,7 @@
         <div class="cert-sub">Toka abed - Math Champion</div>
         
         <div class="cert-name-edit">
-            <label>يمكنك تغيير اسم الطالب/الطالبة المكتوب في الشهادة:</label>
+            <label>اسم الطالب/الطالبة في الشهادة:</label>
             <input type="text" id="cert-name-input" value="تقى عابد" oninput="syncName(this.value)">
         </div>
         <div class="cert-print-name" style="display:none;" id="cert-print-display">تقى عابد</div>
@@ -489,7 +490,7 @@
         </div>
 
         <div class="cert-modal-btns">
-            <button class="cert-modal-btn btn-print" onclick="window.print()">🖨️ طباعة / حفظ الشهادة</button>
+            <button class="cert-modal-btn btn-print" onclick="printCertificate()">🖨️ طباعة / حفظ الشهادة</button>
             <button class="cert-modal-btn btn-close" onclick="closeCertificate()">إغلاق</button>
         </div>
     </div>
@@ -508,73 +509,5 @@
             ]
         },
         {
-            title: "المرحلة الثانية: الوقت المنقضي المتقدم (Elapsed Time)",
-            questions: [
-                { 
-                    q: "Start time: 8:45 AM<br>End time: 11:20 AM<br>What is the elapsed time?", 
-                    opts: ["2 hours 35 minutes", "2 hours 25 minutes", "3 hours 35 minutes", "1 hour 35 minutes"], 
-                    ans: 0 
-                },
-                { 
-                    q: "Start time: 11:35 AM<br>End time: 2:15 PM<br>What is the elapsed time?", 
-                    opts: ["2 hours 40 minutes", "3 hours 20 minutes", "2 hours 20 minutes", "3 hours 40 minutes"], 
-                    ans: 0 
-                },
-                { 
-                    q: "A movie starts at 4:50 PM and lasts 2 hours and 15 minutes.<br>At what time does the movie end?", 
-                    opts: ["7:05 PM", "6:55 PM", "7:15 PM", "6:05 PM"], 
-                    ans: 0 
-                },
-                { 
-                    q: "Toka finished her homework at 6:15 PM.<br>She spent 1 hour and 45 minutes studying.<br>At what time did Toka start?", 
-                    opts: ["4:30 PM", "4:45 PM", "5:00 PM", "4:15 PM"], 
-                    ans: 0 
-                },
-                { 
-                    q: "Start time: 9:40 AM<br>Elapsed time: 2 hours 50 minutes<br>What is the end time?", 
-                    opts: ["12:30 PM", "12:20 PM", "1:30 PM", "11:30 AM"], 
-                    ans: 0 
-                },
-                { 
-                    q: "Start time: 7:25 AM<br>End time: 10:10 AM<br>What is the elapsed time?", 
-                    opts: ["2 hours 45 minutes", "2 hours 35 minutes", "3 hours 15 minutes", "1 hour 45 minutes"], 
-                    ans: 0 
-                },
-                { 
-                    q: "A train left at 10:50 AM and arrived at 1:25 PM.<br>How long was the trip?", 
-                    opts: ["2 hours 35 minutes", "2 hours 45 minutes", "3 hours 25 minutes", "2 hours 25 minutes"], 
-                    ans: 0 
-                },
-                { 
-                    q: "Practice starts at 3:30 PM and ends at 5:15 PM.<br>What is the elapsed time?", 
-                    opts: ["1 hour 45 minutes", "1 hour 35 minutes", "2 hours 15 minutes", "1 hour 15 minutes"], 
-                    ans: 0 
-                }
-            ]
-        },
-        {
-            title: "المرحلة الثالثة: خط القفز (Skip Counting)",
-            questions: [
-                { q: "Skip count by 4:<br>4, 8, 12, __, 20", opts: ["14", "16", "18", "15"], ans: 1 },
-                { q: "Skip count by 5:<br>5, 10, 15, 20, __", opts: ["22", "25", "30", "24"], ans: 1 },
-                { q: "Skip count by 3:<br>3, 6, 9, __, 15", opts: ["11", "12", "10", "13"], ans: 1 },
-                { q: "Skip count by 10:<br>10, 20, 30, __, 50", opts: ["35", "40", "45", "38"], ans: 1 }
-            ]
-        },
-        {
-            title: "المرحلة الرابعة: مسائل كلامية (Word Problems)",
-            questions: [
-                { q: "Toka has 4 boxes. Each box has 5 apples. How many apples in total?", opts: ["15 apples", "20 apples", "25 apples", "10 apples"], ans: 1 },
-                { q: "Toka started reading at 4:00 PM and finished at 4:30 PM. How long did she read?", opts: ["15 minutes", "30 minutes", "45 minutes", "1 hour"], ans: 1 },
-                { q: "There are 6 bicycles. Each bicycle has 2 wheels. Total wheels?", opts: ["12 wheels", "10 wheels", "14 wheels", "16 wheels"], ans: 0 },
-                { q: "3 groups of 8 students. Total students?", opts: ["20 students", "24 students", "16 students", "32 students"], ans: 1 }
-            ]
-        },
-        {
-            title: "المرحلة الخامسة: تحدي الرياضيات (Math Challenge)",
-            questions: [
-                { q: "8 × 4 = ?", opts: ["28", "32", "36", "40"], ans: 1 },
-                { q: "9 × 3 = ?", opts: ["24", "27", "30", "21"], ans: 1 },
-                { q: "Start: 1:15 PM, End: 2:00 PM.<br>Elapsed time?", opts: ["30 minutes", "45 minutes", "1 hour", "15 minutes"], ans: 1 },
-                { q
 
+    
