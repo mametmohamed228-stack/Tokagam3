@@ -1,51 +1,39 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toka abed - Math Primary 3</title>
+    <title>Toka abed - Math Primary 3 Adventure</title>
     <style>
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         body {
-            background-color: #f4f6fb;
+            background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
             display: flex;
             justify-content: center;
             align-items: flex-start;
             min-height: 100vh;
-            padding: 10px;
+            padding: 12px;
         }
         .app-container {
             width: 100%;
-            max-width: 500px;
+            max-width: 520px;
             background: #ffffff;
             border-radius: 24px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
             overflow: hidden;
             display: flex;
             flex-direction: column;
             position: relative;
         }
-        .v-badge {
-            background: #22c55e;
-            color: white;
-            text-align: center;
-            font-size: 11px;
-            font-weight: bold;
-            padding: 3px 0;
-        }
         .header {
             background: linear-gradient(135deg, #6a11cb, #2575fc);
-            padding: 18px 15px;
+            padding: 16px;
             color: white;
-            text-align: center;
-            border-bottom-left-radius: 20px;
-            border-bottom-right-radius: 20px;
         }
         .profile-section {
             display: flex;
@@ -58,18 +46,16 @@
             gap: 10px;
         }
         .avatar {
-            width: 50px;
-            height: 50px;
+            width: 55px;
+            height: 55px;
             background: #fff;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 26px;
+            font-size: 30px;
             border: 3px solid #ffe600;
-        }
-        .user-details {
-            text-align: right;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
         }
         .user-details h2 {
             font-size: 18px;
@@ -77,9 +63,9 @@
         }
         .name-input {
             background: rgba(255,255,255,0.25);
-            border: 1px solid rgba(255,255,255,0.6);
+            border: 1px solid rgba(255,255,255,0.7);
             color: white;
-            padding: 3px 8px;
+            padding: 4px 8px;
             border-radius: 8px;
             font-size: 13px;
             font-weight: bold;
@@ -87,7 +73,7 @@
             outline: none;
         }
         .badge {
-            background: rgba(255, 255, 255, 0.25);
+            background: rgba(255, 255, 255, 0.3);
             padding: 2px 8px;
             border-radius: 10px;
             font-size: 11px;
@@ -97,110 +83,154 @@
         }
         .stats-box {
             display: flex;
-            gap: 5px;
+            gap: 6px;
         }
         .stat-card {
             background: #ffffff;
             color: #333;
-            padding: 5px 8px;
-            border-radius: 12px;
+            padding: 6px 10px;
+            border-radius: 14px;
             font-weight: 800;
-            font-size: 12px;
-            display: flex;
-            align-items: center;
-            gap: 4px;
+            font-size: 13px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-        .intro-card {
-            background: #fffde7;
-            border: 2px dashed #fbc02d;
-            border-radius: 16px;
-            padding: 10px 12px;
-            margin: 10px 12px 4px 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .intro-text {
-            color: #444;
-            font-size: 12px;
-            font-weight: 700;
-            line-height: 1.4;
-        }
+
+        /* Stages Navigation Bar */
         .stages-nav {
             display: flex;
-            gap: 5px;
+            gap: 6px;
             overflow-x: auto;
-            padding: 8px 12px;
+            padding: 10px 12px;
+            background: #f1f5f9;
         }
         .stage-tab {
-            background: #eef2f5;
-            color: #555;
-            padding: 7px 10px;
-            border-radius: 10px;
-            font-size: 11px;
-            font-weight: bold;
+            background: #ffffff;
+            color: #475569;
+            padding: 8px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 800;
             white-space: nowrap;
             cursor: pointer;
-            border: 1px solid #ddd;
+            border: 1px solid #cbd5e1;
+            transition: all 0.2s ease;
         }
         .stage-tab.active {
             background: #ff4081;
             color: white;
             border-color: #ff4081;
+            box-shadow: 0 3px 8px rgba(255,64,129,0.3);
         }
-        .game-card {
-            background: #fdfdfd;
-            border: 2px solid #e2e8f0;
-            border-radius: 18px;
-            margin: 0 12px 12px 12px;
-            padding: 15px;
-            min-height: 250px;
+
+        /* Content Area */
+        .main-card {
+            background: #ffffff;
+            padding: 16px;
+            min-height: 380px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
-        .card-header {
+
+        /* Toka Explainer Card */
+        .toka-explain-box {
+            background: #fff8e1;
+            border: 2px solid #ffe082;
+            border-radius: 18px;
+            padding: 14px;
+            margin-bottom: 12px;
+            position: relative;
+        }
+        .toka-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+        .toka-icon {
+            font-size: 32px;
+        }
+        .toka-title {
+            color: #d84315;
+            font-weight: 900;
+            font-size: 15px;
+        }
+        .explain-text {
+            color: #37474f;
+            font-size: 13px;
+            line-height: 1.6;
+            font-weight: 700;
+        }
+
+        /* Example Card */
+        .example-box {
+            background: #e8f5e9;
+            border: 2px dashed #81c784;
+            border-radius: 14px;
+            padding: 10px 12px;
+            margin-top: 8px;
+        }
+        .example-title {
+            color: #2e7d32;
+            font-weight: 900;
+            font-size: 13px;
+            margin-bottom: 4px;
+        }
+        .example-content {
+            color: #1b5e20;
+            font-size: 13px;
+            font-weight: 700;
+            direction: ltr;
+            text-align: right;
+        }
+
+        /* Questions styling */
+        .q-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
-        .stage-title-text {
+        .q-title {
             color: #1e88e5;
-            font-weight: 800;
-            font-size: 14px;
+            font-weight: 900;
+            font-size: 15px;
         }
         .q-counter {
             background: #e3f2fd;
-            color: #1976d2;
-            padding: 3px 8px;
-            border-radius: 8px;
-            font-size: 11px;
-            font-weight: 700;
+            color: #1565c0;
+            padding: 3px 10px;
+            border-radius: 10px;
+            font-size: 12px;
+            font-weight: 800;
         }
-        .question-text {
+        .question-box {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 16px;
+            text-align: center;
             font-size: 16px;
             font-weight: 800;
-            color: #2c3e50;
-            text-align: center;
-            margin: 10px 0;
-            direction: ltr;
+            color: #1e293b;
+            margin-bottom: 14px;
+            line-height: 1.5;
         }
         .options-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 8px;
+            gap: 10px;
         }
         .opt-btn {
             background: #ffffff;
             border: 2px solid #cbd5e1;
-            border-radius: 12px;
-            padding: 10px 6px;
-            font-size: 14px;
+            border-radius: 14px;
+            padding: 12px 8px;
+            font-size: 15px;
             font-weight: 800;
             color: #334155;
             cursor: pointer;
-            text-align: center;
+            transition: all 0.2s;
             direction: ltr;
         }
         .opt-btn.correct {
@@ -213,23 +243,38 @@
             color: white !important;
             border-color: #f44336 !important;
         }
+        .action-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #2575fc, #6a11cb);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 14px;
+            font-size: 14px;
+            font-weight: 900;
+            cursor: pointer;
+            margin-top: 10px;
+            box-shadow: 0 4px 12px rgba(37,117,252,0.3);
+        }
         .feedback-msg {
             text-align: center;
-            font-weight: 800;
+            font-weight: 900;
             font-size: 14px;
             margin-top: 8px;
-            min-height: 20px;
+            min-height: 22px;
         }
+
+        /* Certificates and Footer */
         .cert-bar {
-            padding: 0 12px 10px 12px;
+            padding: 0 16px 12px 16px;
         }
         .cert-btn {
             width: 100%;
             background: linear-gradient(135deg, #ff9a9e, #fecfef);
-            color: #b81b5c;
-            border: 2px solid #f48fb1;
-            padding: 10px;
-            border-radius: 12px;
+            color: #881337;
+            border: 2px solid #fda4af;
+            padding: 11px;
+            border-radius: 14px;
             font-size: 13px;
             font-weight: 900;
             cursor: pointer;
@@ -237,23 +282,23 @@
         .footer-share {
             background: #f8fafc;
             border-top: 1px solid #e2e8f0;
-            padding: 10px 12px;
+            padding: 12px 16px;
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
         .share-text {
-            font-size: 11px;
+            font-size: 12px;
             font-weight: 800;
             color: #475569;
         }
         .share-btns {
             display: flex;
-            gap: 5px;
+            gap: 6px;
         }
         .share-btn {
-            padding: 6px 10px;
-            border-radius: 8px;
+            padding: 7px 12px;
+            border-radius: 10px;
             border: none;
             color: white;
             font-size: 11px;
@@ -263,11 +308,12 @@
         .bg-copy { background: #64748b; }
         .bg-wa { background: #25d366; }
 
+        /* Modal Certificate */
         .modal-overlay {
             display: none;
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.7);
+            background: rgba(0,0,0,0.75);
             z-index: 1000;
             justify-content: center;
             align-items: center;
@@ -277,29 +323,29 @@
         .certificate-box {
             background: #fff;
             width: 100%;
-            max-width: 450px;
-            border-radius: 18px;
+            max-width: 460px;
+            border-radius: 20px;
             border: 6px solid #f1c40f;
-            padding: 15px;
+            padding: 20px;
             text-align: center;
         }
         .cert-header {
             color: #d4ac0d;
-            font-size: 22px;
+            font-size: 24px;
             font-weight: 900;
         }
         .cert-body {
-            font-size: 13px;
+            font-size: 14px;
             color: #34495e;
-            margin: 12px 0;
+            margin: 15px 0;
             font-weight: 700;
-            line-height: 1.5;
+            line-height: 1.6;
         }
         .cert-modal-btn {
             width: 48%;
-            padding: 8px;
+            padding: 10px;
             border: none;
-            border-radius: 8px;
+            border-radius: 10px;
             font-weight: bold;
             cursor: pointer;
         }
@@ -310,8 +356,7 @@
 <body>
 
 <div class="app-container">
-    <div class="v-badge">✨ الإصدار المحدث 2.0 - Toka abed</div>
-
+    <!-- Top Header Profile -->
     <div class="header">
         <div class="profile-section">
             <div class="user-info">
@@ -330,42 +375,28 @@
         </div>
     </div>
 
-    <div class="intro-card">
-        <div style="font-size: 24px;">👧</div>
-        <div class="intro-text">
-            أهلاً بيكي يا <b id="intro-player-name">تقى عابد</b>! يلا بينا نحل أسئلة الماث والوقت المنقضي!
-        </div>
-    </div>
-
+    <!-- Stage Navigation -->
     <div class="stages-nav">
-        <div class="stage-tab active" onclick="switchStage(0)">1. الضرب</div>
-        <div class="stage-tab" onclick="switchStage(1)">2. الوقت المنقضي ⏰</div>
-        <div class="stage-tab" onclick="switchStage(2)">3. القفز</div>
-        <div class="stage-tab" onclick="switchStage(3)">4. مسائل كلامية</div>
-        <div class="stage-tab" onclick="switchStage(4)">5. التحدي</div>
+        <div class="stage-tab active" onclick="switchStage(0)">1. الوقت المنقضي ⏰</div>
+        <div class="stage-tab" onclick="switchStage(1)">2. حساب وقت الانتهاء ⏳</div>
+        <div class="stage-tab" onclick="switchStage(2)">3. جدول الضرب ✖️</div>
+        <div class="stage-tab" onclick="switchStage(3)">4. مسائل كلامية 📝</div>
+        <div class="stage-tab" onclick="switchStage(4)">5. التحدي الكبير 🏆</div>
     </div>
 
-    <div class="game-card">
-        <div>
-            <div class="card-header">
-                <span class="stage-title-text" id="stage-title">المرحلة الأولى</span>
-                <span class="q-counter" id="q-counter">السؤال 1</span>
-            </div>
-            <div class="question-text" id="question-text">جارٍ تحميل السؤال...</div>
-        </div>
-
-        <div>
-            <div class="options-grid" id="options-container"></div>
-            <div class="feedback-msg" id="feedback"></div>
-        </div>
+    <!-- Main Dynamic Card -->
+    <div class="main-card" id="main-card">
+        <!-- JS injects content here -->
     </div>
 
+    <!-- Certificate Button -->
     <div class="cert-bar">
         <button class="cert-btn" onclick="openCertificate()">🏆 عرض شهادة التقدير والتفوق</button>
     </div>
 
+    <!-- Footer Share -->
     <div class="footer-share">
-        <div class="share-text">🚀 مشاركة اللعبة:</div>
+        <div class="share-text">🚀 مشاركة اللعبة مع الأصدقاء:</div>
         <div class="share-btns">
             <button class="share-btn bg-copy" onclick="copyLink()">نسخ الرابط</button>
             <button class="share-btn bg-wa" onclick="shareWhatsApp()">واتساب</button>
@@ -373,64 +404,82 @@
     </div>
 </div>
 
+<!-- Modal Certificate Window -->
 <div class="modal-overlay" id="cert-modal">
     <div class="certificate-box">
-        <div class="cert-header">🎓 شهادة تقدير 🎓</div>
+        <div class="cert-header">🎓 شهادة تقدير وتفوق 🎓</div>
         <div class="cert-body">
-            تشهد اللعبة بأن البطلة المتميزة <br>
-            <b style="font-size: 18px; color: #d35400;" id="cert-display-name">تقى عابد</b><br>
-            قد اجتازت جميع أسئلة الماث بنجاح!<br>
-            النتيجة: <b style="color: #27ae60;" id="cert-score-display">0 نقطة</b> ⭐
+            تشهد أكاديمية الماث بأن البطلة الرائعة <br>
+            <b style="font-size: 20px; color: #d35400;" id="cert-display-name">تقى عابد</b><br>
+            قد أتقنت جميع دروس الماث والوقت المنقضي بنجاح فائق!<br><br>
+            مجموع النقاط: <b style="color: #27ae60; font-size: 18px;" id="cert-score-display">0 نقطة</b> ⭐
         </div>
         <div style="display: flex; justify-content: space-between;">
-            <button class="cert-modal-btn btn-print" onclick="window.print()">🖨️ طباعة</button>
+            <button class="cert-modal-btn btn-print" onclick="window.print()">🖨️ طباعة الشهادة</button>
             <button class="cert-modal-btn btn-close" onclick="closeCertificate()">إغلاق</button>
         </div>
     </div>
 </div>
 
 <script>
-    const stagesData = [
+    // Game Data & Curriculum Content
+    const gameData = [
         {
-            title: "المرحلة الأولى: الضرب",
+            title: "الوقت المنقضي (Elapsed Time)",
+            explanation: "أهلاً بكم! أنا <b>تقى</b> 👧.. لحساب الوقت المنقضي (Elapsed Time) بين وقت البدء (Start Time) ووقت الانتهاء (End Time):<br>1️⃣ اطرح الساعات من الساعات.<br>2️⃣ اطرح الدقائق من الدقائق.<br>💡 <b>قاعدة:</b> Elapsed Time = End Time - Start Time",
+            example: "<b>مثال:</b> البدء 8:15 AM والنهاية 10:45 AM<br>• الساعات: 10 - 8 = 2 ساعة<br>• الدقائق: 45 - 15 = 30 دقيقة<br><b>الوقت المنقضي = 2h 30m</b>",
             questions: [
-                { q: "5 × 4 = ?", opts: ["15", "20", "25", "30"], ans: 1 },
-                { q: "6 × 3 = ?", opts: ["12", "18", "21", "24"], ans: 1 },
-                { q: "7 × 2 = ?", opts: ["14", "16", "12", "18"], ans: 0 }
+                { q: "Start Time: 7:10 AM <br> End Time: 9:40 AM <br><b>Elapsed Time = ?</b>", opts: ["1h 30m", "2h 30m", "2h 20m", "3h 10m"], ans: 1 },
+                { q: "Start Time: 10:15 AM <br> End Time: 1:45 PM <br><b>Elapsed Time = ?</b>", opts: ["3h 30m", "2h 30m", "3h 15m", "4h 00m"], ans: 0 },
+                { q: "Start Time: 4:20 PM <br> End Time: 8:50 PM <br><b>Elapsed Time = ?</b>", opts: ["4h 20m", "4h 30m", "3h 30m", "5h 10m"], ans: 1 },
+                { q: "بدأت تقى المذاكرة الساعة 3:00 PM وانتهت 5:45 PM.<br><b>كم الوقت الذي استغرقته؟</b>", opts: ["2 hours", "2h 45m", "3 hours", "1h 45m"], ans: 1 }
             ]
         },
         {
-            title: "المرحلة الثانية: الوقت المنقضي (Elapsed Time)",
+            title: "حساب وقت الانتهاء (End Time)",
+            explanation: "أنا <b>تقى</b> 👧.. لمعرفة وقت الانتهاء عندما نعرف وقت البدء والمدة المنقضية:<br>💡 <b>نجمع:</b> End Time = Start Time + Duration",
+            example: "<b>مثال:</b> البدء 5:10 PM والمدة 2h 15m<br>• نجمع الساعات: 5 + 2 = 7<br>• نجمع الدقائق: 10 + 15 = 25<br><b>وقت الانتهاء = 7:25 PM</b>",
             questions: [
-                { q: "Start: 8:45 AM | End: 11:20 AM<br>Elapsed time?", opts: ["1h 35m", "2h 35m", "2h 25m", "3h 35m"], ans: 1 },
-                { q: "Start: 11:35 AM | End: 2:15 PM<br>Elapsed time?", opts: ["2h 20m", "3h 20m", "2h 40m", "3h 40m"], ans: 2 },
-                { q: "Start: 4:50 PM | Duration: 2h 15m<br>End time?", opts: ["6:55 PM", "7:15 PM", "7:05 PM", "6:05 PM"], ans: 2 }
+                { q: "Start Time: 2:15 PM <br> Duration: 3 hours 20 mins <br><b>End Time = ?</b>", opts: ["5:35 PM", "5:20 PM", "6:35 PM", "4:35 PM"], ans: 0 },
+                { q: "Start Time: 8:00 AM <br> Duration: 1 hour 45 mins <br><b>End Time = ?</b>", opts: ["9:30 AM", "9:45 AM", "10:00 AM", "8:45 AM"], ans: 1 },
+                { q: "شاهدت تقى فيلماً تعليمياً بدأ الساعة 6:10 PM واستمر لمدة 1h 30m.<br><b>متى ينتهي الفيلم؟</b>", opts: ["7:10 PM", "7:40 PM", "8:10 PM", "7:30 PM"], ans: 1 }
             ]
         },
         {
-            title: "المرحلة الثالثة: خط القفز",
+            title: "جدول الضرب والعد القفزي",
+            explanation: "أنا <b>تقى</b> 👧.. الضرب هو تكرار للجمع! <br>مثلاً: 3 × 4 يعني جمع الرقم 4 ثلاث مرات (4 + 4 + 4 = 12).",
+            example: "<b>مثال:</b> 5 × 6 = 30 <br>(نقفز بـ 5 ست مرات: 5, 10, 15, 20, 25, 30)",
             questions: [
-                { q: "4, 8, 12, __, 20", opts: ["14", "16", "18", "15"], ans: 1 },
-                { q: "5, 10, 15, 20, __", opts: ["22", "25", "30", "24"], ans: 1 }
+                { q: "6 × 4 = ?", opts: ["20", "24", "28", "18"], ans: 1 },
+                { q: "7 × 3 = ?", opts: ["21", "18", "24", "27"], ans: 0 },
+                { q: "8 × 5 = ?", opts: ["35", "40", "45", "30"], ans: 1 },
+                { q: "أكمل النمط: 4, 8, 12, 16, __", opts: ["18", "20", "22", "24"], ans: 1 }
             ]
         },
         {
-            title: "المرحلة الرابعة: مسائل كلامية",
+            title: "مسائل كلامية حياتية (Word Problems)",
+            explanation: "مع تقى 👧 نقرأ المسألة الكلامية بذكاء! حدد الأرقام والمطلوب قبل الحل.",
+            example: "<b>مثال:</b> 4 أكياس في كل كيس 5 تفاحات.<br>العدد الكلي = 4 × 5 = 20 تفاحة.",
             questions: [
-                { q: "4 boxes with 5 apples each. Total?", opts: ["15 apples", "20 apples", "25 apples", "10 apples"], ans: 1 }
+                { q: "اشترت تقى 5 علاب ألوان، في كل علبة 6 أقلام. كم عدد الأقلام الكلي؟", opts: ["25 قلم", "30 قلم", "35 قلم", "20 قلم"], ans: 1 },
+                { q: "بدأ درس الماث الساعة 11:00 AM وانتهى الساعة 12:30 PM. ما المدة المنقضية؟", opts: ["1h 30m", "2 hours", "1 hour", "45 mins"], ans: 0 }
             ]
         },
         {
-            title: "المرحلة الخامسة: التحدي",
+            title: "تحدي الأبطال الشامل 🏆",
+            explanation: "مرحلة التحدي لتقى والأبطال! اختبر مهاراتك السريعة الآن!⚡",
+            example: "<b>جاهز للتحدي؟</b> اضغط ابدأ التمارين وحقق أعلى النقاط!",
             questions: [
-                { q: "8 × 4 = ?", opts: ["28", "32", "36", "40"], ans: 1 },
-                { q: "7 × 5 = ?", opts: ["30", "35", "40", "25"], ans: 1 }
+                { q: "9 × 4 = ?", opts: ["32", "36", "40", "28"], ans: 1 },
+                { q: "Start: 1:30 PM | End: 4:15 PM <br> Elapsed Time = ?", opts: ["2h 45m", "3h 15m", "2h 15m", "3h 45m"], ans: 0 },
+                { q: "7 × 6 = ?", opts: ["42", "48", "36", "40"], ans: 0 }
             ]
         }
     ];
 
     let currentStage = 0;
     let currentQIndex = 0;
+    let viewMode = 'explain'; // 'explain' or 'practice'
     let score = 0;
     let streak = 0;
 
@@ -439,25 +488,72 @@
         return (input && input.value.trim()) ? input.value.trim() : "تقى عابد";
     }
 
-    function renderQuestion() {
-        const stage = stagesData[currentStage];
-        const qData = stage.questions[currentQIndex];
+    function renderView() {
+        const stage = gameData[currentStage];
+        const mainCard = document.getElementById('main-card');
+        const playerName = getPlayerName();
 
-        document.getElementById('stage-title').innerText = stage.title;
-        document.getElementById('q-counter').innerText = `السؤال ${currentQIndex + 1} من ${stage.questions.length}`;
-        document.getElementById('question-text').innerHTML = qData.q;
-        document.getElementById('feedback').innerText = "";
+        if (viewMode === 'explain') {
+            mainCard.innerHTML = `
+                <div>
+                    <div class="q-header">
+                        <span class="q-title">${stage.title}</span>
+                        <span class="q-counter">شرح وتوضيح</span>
+                    </div>
+                    
+                    <div class="toka-explain-box">
+                        <div class="toka-header">
+                            <span class="toka-icon">👧</span>
+                            <span class="toka-title">شرح المعلمة تقى:</span>
+                        </div>
+                        <div class="explain-text">${stage.explanation}</div>
+                        
+                        <div class="example-box">
+                            <div class="example-title">💡 مثال توضيحي محلول:</div>
+                            <div class="example-content">${stage.example}</div>
+                        </div>
+                    </div>
+                </div>
 
-        const optionsContainer = document.getElementById('options-container');
-        optionsContainer.innerHTML = "";
+                <button class="action-btn" onclick="startPractice()">🚀 ابدأ حل التمارين مع ${playerName}!</button>
+            `;
+        } else {
+            const qData = stage.questions[currentQIndex];
+            let optsHTML = '';
+            
+            qData.opts.forEach((optText, idx) => {
+                optsHTML += `<button class="opt-btn" onclick="checkAnswer(${idx}, ${qData.ans}, this)">${optText}</button>`;
+            });
 
-        qData.opts.forEach((optText, idx) => {
-            const btn = document.createElement('button');
-            btn.className = 'opt-btn';
-            btn.innerText = optText;
-            btn.onclick = () => checkAnswer(idx, qData.ans, btn);
-            optionsContainer.appendChild(btn);
-        });
+            mainCard.innerHTML = `
+                <div>
+                    <div class="q-header">
+                        <span class="q-title">${stage.title}</span>
+                        <span class="q-counter">سؤال ${currentQIndex + 1} من ${stage.questions.length}</span>
+                    </div>
+
+                    <div class="question-box">${qData.q}</div>
+
+                    <div class="options-grid" id="options-container">
+                        ${optsHTML}
+                    </div>
+
+                    <div class="feedback-msg" id="feedback"></div>
+                </div>
+                
+                <button class="action-btn" style="background: #64748b;" onclick="showExplanationMode()">💡 إعادة قراءة الشرح والمثال</button>
+            `;
+        }
+    }
+
+    function startPractice() {
+        viewMode = 'practice';
+        renderView();
+    }
+
+    function showExplanationMode() {
+        viewMode = 'explain';
+        renderView();
     }
 
     function checkAnswer(selectedIdx, correctIdx, btn) {
@@ -469,76 +565,4 @@
 
         if (selectedIdx === correctIdx) {
             btn.classList.add('correct');
-            feedbackEl.innerText = `🎉 إجابة صحيحة يا ${playerName}!`;
-            feedbackEl.style.color = "#2e7d32";
-            score += 10;
-            streak += 1;
-        } else {
-            btn.classList.add('wrong');
-            if(allBtns[correctIdx]) allBtns[correctIdx].classList.add('correct');
-            feedbackEl.innerText = "❌ إجابة خاطئة!";
-            feedbackEl.style.color = "#c62828";
-            streak = 0;
-        }
-
-        document.getElementById('score').innerText = score;
-        document.getElementById('streak').innerText = streak;
-
-        setTimeout(() => {
-            currentQIndex++;
-            if (currentQIndex < stagesData[currentStage].questions.length) {
-                renderQuestion();
-            } else {
-                if (currentStage < stagesData.length - 1) {
-                    switchStage(currentStage + 1);
-                } else {
-                    feedbackEl.innerText = `🏆 أحسنتِ يا ${playerName}! أنهيتِ اللعبة!`;
-                    feedbackEl.style.color = "#2e7d32";
-                    setTimeout(openCertificate, 800);
-                }
-            }
-        }, 1000);
-    }
-
-    function switchStage(stageIdx) {
-        currentStage = stageIdx;
-        currentQIndex = 0;
-        const tabs = document.querySelectorAll('.stage-tab');
-        tabs.forEach((tab, i) => {
-            if (i === stageIdx) tab.classList.add('active');
-            else tab.classList.remove('active');
-        });
-        renderQuestion();
-    }
-
-    function syncName(val) {
-        const name = val.trim() || "تقى عابد";
-        document.getElementById('player-name-input').value = val;
-        document.getElementById('intro-player-name').innerText = name;
-        document.getElementById('cert-display-name').innerText = name;
-    }
-
-    function openCertificate() {
-        syncName(getPlayerName());
-        document.getElementById('cert-score-display').innerText = `${score} نقطة`;
-        document.getElementById('cert-modal').classList.add('active');
-    }
-
-    function closeCertificate() {
-        document.getElementById('cert-modal').classList.remove('active');
-    }
-
-    function copyLink() {
-        navigator.clipboard.writeText(window.location.href);
-        alert("تم نسخ الرابط!");
-    }
-
-    function shareWhatsApp() {
-        window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(window.location.href)}`);
-    }
-
-    renderQuestion();
-</script>
-
-</body>
-</html>
+            feedbackEl.innerText = `?
